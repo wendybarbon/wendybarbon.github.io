@@ -60,7 +60,11 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:
 .navlinks a{color:var(--ink);text-decoration:none;font-weight:700;font-size:15px}
 .navlinks a:hover{color:var(--coral)}
 .navlinks .btn{padding:8px 16px;font-size:15px;box-shadow:3px 3px 0 var(--ink);color:#fff}
-@media (max-width:860px){.navlinks a:not(.btn){display:none}}
+.brand{white-space:nowrap;flex:none}
+@media (max-width:480px){.brand small{display:none}.brand{font-size:17px}.brand img{width:38px;height:38px}.nav-cta{padding:7px 12px!important;font-size:14px!important}}
+.nav-cta{display:none;padding:8px 16px;font-size:15px;box-shadow:3px 3px 0 var(--ink)}
+.navlinks{flex-wrap:nowrap}.navlinks a{white-space:nowrap}
+@media (max-width:1440px){nav.top .wrap{flex-wrap:wrap;row-gap:6px}.navlinks{order:3;width:100%;overflow-x:auto;gap:16px;padding-bottom:4px;scrollbar-width:none}.navlinks::-webkit-scrollbar{display:none}.navlinks a{font-size:14px}.navlinks .btn{display:none}.nav-cta{display:inline-flex}}
 
 /* hero */
 .hero{position:relative;padding-block:clamp(40px,6vw,72px) clamp(56px,7vw,88px);background:
@@ -258,8 +262,8 @@ footer h2{color:#fff}
 .foot-note{font-size:13px;color:#cbbfd0;display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
 
 /* toast + confetti */
-#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(140%);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:700;z-index:20;transition:transform .3s;max-width:calc(100% - 32px)}
-#toast.show{transform:translateX(-50%) translateY(0)}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(250%);visibility:hidden;background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:700;z-index:20;transition:transform .3s;max-width:calc(100% - 32px)}
+#toast.show{transform:translateX(-50%) translateY(0);visibility:visible}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:19}
 
 /* motion */
@@ -309,6 +313,143 @@ footer h2{color:#fff}
 .btn.messenger{background:linear-gradient(135deg,#ff5a5a,#ff8a5b 55%,#ffb347);color:#fff;justify-content:center;font-size:19px;padding:16px 24px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:860px){.wall-grid{grid-template-columns:1fr}}
+.pay{margin-top:40px;scroll-margin-top:80px;border:3px solid var(--ink);border-radius:var(--r-lg);background:var(--paper);box-shadow:8px 8px 0 var(--sun);padding:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:start}
+.pay-box{position:relative;padding-top:26px!important}
+.pay-box h4{margin:0;font-family:var(--display);font-size:19px}
+.pay-box.gcash{background:#e6f0ff}
+.stepn{position:absolute;top:-16px;left:16px;width:34px;height:34px;border-radius:50%;background:var(--sun);border:2.5px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:700}
+.pay-head{grid-column:1/-1;display:grid;gap:6px;justify-items:start}
+.pay-head .badge{background:var(--coral);color:#fff;border:2px solid var(--ink);border-radius:999px;padding:2px 12px;font-weight:800;font-size:12px;letter-spacing:.1em}
+.pay-head p{color:var(--ink-soft)}
+.pay-box{display:grid;gap:12px;align-content:start;background:var(--paper-2);border:2px dashed var(--ink);border-radius:var(--r-md);padding:18px;min-width:0}
+.pay-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center}
+.pay-row small{grid-column:1/-1;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--coral-deep)}
+.pay-row b{font-size:15.5px;overflow-wrap:anywhere;user-select:all}
+.btn.mini{padding:4px 12px;font-size:13px;box-shadow:2px 2px 0 var(--ink)}
+@media (max-width:960px){.pay{grid-template-columns:1fr;gap:28px}}
+.combo{background:var(--paper-2);border-block:2px dashed var(--line)}
+.combo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.cb{position:relative;border:2.5px solid var(--ink);border-radius:var(--r-lg);background:var(--paper);padding:24px 22px;display:grid;gap:12px;align-content:start;grid-template-rows:auto auto auto auto 1fr auto auto}
+.cb-top{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.cb .lvl{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--coral-deep)}
+.cb .for{font-size:12.5px;font-weight:700;color:var(--ink-soft);background:var(--paper-2);border:1.5px solid var(--line);border-radius:999px;padding:1px 10px}
+.cb h3{font-size:24px}
+.cb .mix{font-weight:800;font-size:14px;background:#e0f1fd;border:2px solid var(--ink);border-radius:10px;padding:6px 10px}
+.cb>p:not(.mix):not(.out-line){color:var(--ink-soft);font-size:15.5px}
+.cb ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;align-content:start;font-size:14.5px}
+.cb li{padding-left:26px;position:relative}
+.cb li::before{content:"";position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--mint);border:2px solid var(--ink)}
+.cb .out-line{font-family:var(--hand);font-size:24px;line-height:1.15;color:var(--coral-deep)}
+.cb.flag{background:var(--ink);color:#fff;box-shadow:8px 8px 0 var(--coral)}
+.cb.flag h3{color:#fff}.cb.flag>p:not(.mix):not(.out-line){color:#e6dde8}.cb.flag .lvl{color:var(--sun)}
+.cb.flag .for{background:transparent;color:#e6dde8;border-color:#6b5f6f}
+.cb.flag .mix{background:var(--sun);color:var(--ink)}
+.cb.flag .out-line{color:var(--sun)}
+.cb.flag li::before{background:var(--sun)}
+.cb .ribbon{position:absolute;top:-14px;right:18px;background:var(--coral);color:#fff;border:2.5px solid var(--ink);border-radius:999px;padding:3px 14px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.1em;animation:pop 2.6s ease-in-out infinite}
+@media (max-width:980px){.combo-grid{grid-template-columns:1fr}}
+.cmp-wrap{overflow-x:auto;margin-top:34px;border:2.5px solid var(--ink);border-radius:var(--r-md);background:var(--paper)}
+.cmp{width:100%;min-width:520px;border-collapse:collapse;font-size:15px}
+.cmp caption{text-align:left;font-family:var(--display);font-weight:700;font-size:19px;padding:14px 16px 6px}
+.cmp th,.cmp td{padding:11px 14px;border-top:1.5px solid var(--rule);text-align:center}
+.cmp thead th{background:var(--ink);color:#fff;font-family:var(--display);font-weight:600}
+.cmp thead th:last-child{background:var(--coral)}
+.cmp tbody th{text-align:left;font-weight:700}
+.cmp td.y{color:#1f8a66;font-weight:800;font-size:18px}
+.cmp td.n{color:#b9adbc}
+.svc-sub{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-top:10px;font-family:var(--display);font-weight:700;font-size:20px}
+.svc-sub::after{content:"";flex:1;border-top:2px dashed var(--line)}
+.grow-band{grid-column:1/-1;position:relative;margin-top:34px;overflow:visible!important;border:3px solid var(--ink);border-radius:var(--r-lg);padding:30px 26px 24px;background:linear-gradient(120deg,#ff5a5a,#ff8a5b 55%,#ffd166);color:#fff;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 24px;align-items:center;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.grow-band::after{content:"";position:absolute;right:20px;top:10px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.15)}
+.grow-band h3{color:#fff;font-size:clamp(26px,3.4vw,38px);font-weight:700;text-shadow:2px 2px 0 rgba(43,34,48,.25)}
+.grow-band p{font-size:17px;font-weight:600;max-width:60ch;margin-top:6px}
+.gb-copy{min-width:0;position:relative;z-index:1}
+.gb-new{position:absolute;top:-15px;left:22px;z-index:2;background:var(--sun);color:var(--ink);border:2.5px solid var(--ink);border-radius:999px;padding:2px 12px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.1em;animation:pop 2.4s ease-in-out infinite}
+.gb-tags{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+.gb-tags span{background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:5px 14px;font-family:var(--display);font-weight:600;font-size:15px;white-space:nowrap;text-align:center}
+.gb-tags span:nth-child(2){transform:rotate(-2deg)}.gb-tags span:nth-child(3){transform:rotate(2deg)}
+@media (max-width:760px){.grow-band{grid-template-columns:1fr}.gb-tags{flex-direction:row;flex-wrap:wrap}}
+.svc.grow{border-color:var(--coral-deep);background:linear-gradient(160deg,var(--paper),#f4fbff)}
+.refer{background:var(--paper)}
+.fee-tag{display:flex;gap:14px;align-items:center;background:#d9f6ea;border:2.5px solid var(--ink);border-radius:var(--r-md);padding:12px 16px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-1deg);justify-self:start}
+.fee-tag span{font-size:30px;animation:float 3s ease-in-out infinite}
+.fee-tag b{display:block;font-family:var(--display);font-size:19px}
+.fee-tag small{font-size:13.5px;font-weight:700;color:var(--ink-soft)}
+.refer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.refer-copy{display:grid;gap:18px;min-width:0}
+@media (max-width:860px){.refer-grid{grid-template-columns:1fr}}
+.chooser{padding-bottom:0}
+.paths{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:stretch}
+.path{display:grid;gap:12px;align-content:start;text-decoration:none;color:var(--ink);border:3px solid var(--ink);border-radius:var(--r-lg);padding:24px;transition:transform .2s,box-shadow .2s}
+.path:hover{transform:translate(-3px,-3px)}
+.path.pa{background:#fff2c7;box-shadow:7px 7px 0 var(--ink)}
+.path.pb{background:#e0f1fd;box-shadow:7px 7px 0 var(--coral)}
+.path .opt{justify-self:start;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.14em;background:var(--ink);color:#fff;border-radius:999px;padding:3px 12px}
+.path.pb .opt{background:var(--coral)}
+.path h3{font-size:clamp(24px,2.6vw,30px)}
+.path .ask{font-family:var(--hand);font-size:26px;line-height:1.1;color:var(--coral-deep)}
+.path dl{margin:0;display:grid;gap:10px}
+.path dl div{display:grid;grid-template-columns:110px 1fr;gap:10px;border-top:1.5px dashed rgba(43,34,48,.25);padding-top:9px}
+.path dt{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding-top:2px}
+.path dd{margin:0;font-weight:600;font-size:15.5px}
+.path .go{font-family:var(--display);font-weight:700;font-size:17px;margin-top:4px}
+.vs{align-self:center;font-family:var(--hand);font-size:34px;color:var(--ink-soft)}
+@media (max-width:860px){.paths{grid-template-columns:1fr}.vs{justify-self:center}}
+@media (max-width:420px){.path dl div{grid-template-columns:1fr;gap:2px}}
+.tag-opt{display:inline-block;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.14em;color:#fff;border-radius:999px;padding:3px 12px;background:var(--ink);margin-right:8px;vertical-align:middle;transform:rotate(0)}
+.nonacc{background:var(--paper)}
+.who-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.who-card{border:2.5px solid var(--ink);border-radius:var(--r-lg);padding:20px;display:grid;gap:10px;align-content:start;grid-template-rows:auto auto auto 1fr auto;transition:transform .2s}
+.who-card:hover{transform:translateY(-4px) rotate(-.6deg)}
+.who-card.w1{background:#d9f6ea}.who-card.w2{background:#e0f1fd}.who-card.w3{background:#fff2c7}.who-card.w4{background:#ffe3e3}
+.who-ico{width:52px;height:52px;border-radius:16px;background:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;font-size:26px;animation:float 4s ease-in-out infinite}
+.who-card.w2 .who-ico{animation-delay:.5s}.who-card.w3 .who-ico{animation-delay:1s}.who-card.w4 .who-ico{animation-delay:1.5s}
+.who-lbl{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.who-card h3{font-size:20px}
+.who-card>p{font-size:14.5px;color:var(--ink-soft)}
+.path-list{list-style:none;margin:6px 0 0;padding:12px 0 0;border-top:2px dashed rgba(43,34,48,.25);display:grid;gap:8px}
+.path-list li{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;font-size:14px;font-weight:700}
+.path-list a{color:var(--ink);text-decoration:underline;text-decoration-color:rgba(43,34,48,.3);text-underline-offset:3px}
+.path-list a:hover{color:var(--coral-deep)}
+.pf,.pp{font-size:10.5px;font-weight:800;letter-spacing:.08em;border-radius:6px;padding:2px 6px;border:1.5px solid var(--ink);text-align:center;min-width:56px}
+.pf{background:var(--mint)}.pp{background:var(--paper)}
+@media (max-width:1060px){.who-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.who-grid{grid-template-columns:1fr}}
+.ladder{margin-top:30px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:2.5px solid var(--ink);border-radius:var(--r-md);overflow:hidden}
+.rung{padding:14px 16px;display:grid;gap:4px;border-right:2px solid var(--ink)}
+.rung:last-child{border-right:0}
+.rung b{font-family:var(--display);font-size:17px;letter-spacing:.06em}
+.rung span{font-size:13.5px;font-weight:600;color:var(--ink-soft)}
+.rung.r1{background:#d9f6ea}.rung.r2{background:#fff2c7}.rung.r3{background:#e0f1fd}.rung.r4{background:var(--ink)}
+.rung.r4 b{color:var(--sun)}.rung.r4 span{color:#e6dde8}
+@media (max-width:860px){.ladder{grid-template-columns:1fr 1fr}.rung:nth-child(2){border-right:0}.rung:nth-child(-n+2){border-bottom:2px solid var(--ink)}}
+@media (max-width:480px){.ladder{grid-template-columns:1fr}.rung{border-right:0!important;border-bottom:2px solid var(--ink)}.rung:last-child{border-bottom:0}}
+.nonacc-close{margin-top:22px;text-align:center;font-family:var(--hand);font-size:clamp(26px,3vw,32px);color:var(--coral-deep);line-height:1.15}
+.freedom{background:linear-gradient(180deg,var(--paper) 0%,#fff6ec 100%);border-block:2px dashed var(--line);overflow:hidden}
+.fr-head{max-width:820px}
+.fr-hl{color:var(--coral);background:linear-gradient(transparent 60%,var(--sun) 60% 92%,transparent 92%);padding:0 4px}
+.fr-eq{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:6px 0 34px;font-family:var(--display);font-weight:700}
+.fr-term{border:2.5px solid var(--ink);border-radius:14px;padding:8px 16px;background:var(--paper);font-size:clamp(16px,2vw,20px)}
+.fr-op{font-size:clamp(26px,3vw,34px);color:var(--coral)}
+.fr-total{background:var(--ink);color:var(--sun);letter-spacing:.12em;box-shadow:4px 4px 0 var(--coral);animation:pop 2.6s ease-in-out infinite}
+.fr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.fr-card{border:2.5px solid var(--ink);border-radius:var(--r-lg);padding:22px;display:grid;gap:10px;align-content:start;background:var(--paper)}
+.fr-card.t{box-shadow:6px 6px 0 var(--sky)}.fr-card.f{box-shadow:6px 6px 0 var(--mint)}.fr-card.e{box-shadow:6px 6px 0 var(--sun)}
+.fr-ico{font-size:34px;line-height:1;animation:float 3.6s ease-in-out infinite}
+.fr-card.f .fr-ico{animation-delay:.6s}.fr-card.e .fr-ico{animation-delay:1.2s}
+.fr-card h3{font-size:23px}
+.fr-math{font-variant-numeric:tabular-nums;font-weight:700;font-size:14.5px;background:repeating-linear-gradient(to bottom,#fff 0 25px,var(--rule) 25px 26px);border:1.5px dashed var(--ink);border-radius:10px;padding:8px 12px}
+.fr-math b{color:var(--coral-deep);font-size:17px;padding:0 2px}
+.fr-card>p:last-child{color:var(--ink-soft);font-size:15.5px}
+@media (max-width:900px){.fr-grid{grid-template-columns:1fr}}
+.fr-ctas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:34px}
+.fr-cta{display:grid;gap:4px;text-decoration:none;color:var(--ink);border:2.5px solid var(--ink);border-radius:var(--r-md);padding:16px 18px;background:var(--paper);box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.fr-cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.fr-cta span{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.fr-cta b{font-family:var(--display);font-size:20px}
+.fr-cta small{font-weight:700;color:var(--coral-deep);font-size:14px}
+.fr-cta.hot{background:var(--coral);color:#fff}.fr-cta.hot span{color:#ffe3e3}.fr-cta.hot small{color:var(--sun)}
+@media (max-width:900px){.fr-ctas{grid-template-columns:1fr}}
 .coach-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .coach-head .happybook{width:96px;flex:none;margin-top:-30px}
 .kit-box .happybook{position:absolute;left:-20px;bottom:-34px;width:104px}
@@ -324,12 +465,16 @@ footer h2{color:#fff}
 <nav class="top" aria-label="Main">
   <div class="wrap">
     <a class="brand" href="#top"><img src="data:image/jpeg;base64,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" alt=""><span>Wendy Finance VA<small>Making cents of business</small></span></a>
+    <a class="btn nav-cta" href="#book">Book a call</a>
     <div class="navlinks">
+      <a href="#start">Start Here</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#ways">Packages &amp; Combos</a>
       <a href="#toolkit">Free Toolkit</a>
-      <a href="#coaching">Sessions</a>
+      <a href="#coaching">Coaching Sessions</a>
+      <a href="#referrals">Referrals</a>
       <a href="#message">Message me</a>
       <a class="btn" href="#book">Book a call</a>
     </div>
@@ -341,9 +486,9 @@ footer h2{color:#fff}
     <div class="hero-copy">
       <div class="brandline"><span class="pill">WENDY FINANCE VA</span><span class="pill soft">Finance &amp; Operations Partner</span></div>
       <p class="cents">Making cents of business, one ledger at a time! <span class="coinspin" aria-hidden="true">🪙</span></p>
-      <p class="hello">Hi there, future bookkeeper! <span class="wave" aria-hidden="true">👋</span></p>
+      <p class="hello">Hi there, future bookkeepers, startup founders and growing businesses! <span class="wave" aria-hidden="true">👋</span></p>
       <h1>Every number tells a <span class="hl">story</span>. Let's write a <span class="red">great one</span>.</h1>
-      <p class="lede">I'm Wendy, the accountant who thinks like an operator. I help businesses connect their finance, systems and decisions so everything clicks into place. I keep business owners' books clean, current and decision-ready, and I coach new bookkeepers to fall in love with the craft.</p>
+      <p class="lede">I'm Wendy, the accountant who thinks like an operator. I help businesses connect their finance, systems and decisions so everything clicks into place. I keep business owners' books clean, current and decision-ready, and I make finance simple for anyone without an accounting degree, from new bookkeepers to founders.</p>
       <div class="hero-ctas">
         <a class="btn" href="#book">Book a free discovery call</a>
         <a class="btn sun" href="#toolkit">Get the free Blueprint Toolkit</a>
@@ -367,8 +512,8 @@ footer h2{color:#fff}
 </header>
 
 <div class="marquee" aria-hidden="true"><div class="track">
-  <span>Bank recs done</span><span>Books closed on time</span><span>Receipts sorted</span><span>Payroll paid right</span><span>Dashboards that make sense</span><span>Confident owners</span><span>Proud bookkeepers</span>
-  <span>Bank recs done</span><span>Books closed on time</span><span>Receipts sorted</span><span>Payroll paid right</span><span>Dashboards that make sense</span><span>Confident owners</span><span>Proud bookkeepers</span>
+  <span>Bank recs done</span><span>Books closed on time</span><span>Receipts sorted</span><span>Payroll paid right</span><span>Dashboards that make sense</span><span>Time freedom</span><span>Financial freedom</span><span>Energy freedom</span>
+  <span>Bank recs done</span><span>Books closed on time</span><span>Receipts sorted</span><span>Payroll paid right</span><span>Dashboards that make sense</span><span>Time freedom</span><span>Financial freedom</span><span>Energy freedom</span>
 </div></div>
 
 <section class="about" id="about">
@@ -388,8 +533,71 @@ footer h2{color:#fff}
         <span class="chip m">MBA</span>
         <span class="chip b">Postgrad studies, ongoing</span>
       </div>
-      <p class="quote">"You run the business. I'll make sure the numbers keep up."</p>
+      <p class="quote">"You run the business. I'll make sure the numbers keep up, so you get your freedom back."</p>
     </div>
+  </div>
+</section>
+
+<section class="nonacc" id="start">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">No accounting degree? No problem.</span>
+      <h2>Finance made simple for non-accountants</h2>
+      <p class="lede">You don't need an accounting degree to understand money, build a finance career or run a profitable business. Whether you're growing yourself or growing your business, there's a free first step and a clear path forward here.</p>
+    </div>
+    <div class="who-grid">
+      <article class="who-card w1">
+        <div class="who-ico" aria-hidden="true">🌱</div>
+        <span class="who-lbl">For you if you're</span>
+        <h3>An aspiring bookkeeper</h3>
+        <p>Career shifter, fresh grad or curious learner who wants a skill clients pay for.</p>
+        <ul class="path-list">
+          <li><span class="pf">FREE</span><a href="#toolkit">Starter Blueprint Toolkit</a></li>
+          <li><span class="pf">FREE</span><a href="#coaching">FB group community</a></li>
+          <li><span class="pp">₱399</span><a href="#pay">Bookkeeping Session Program</a></li>
+        </ul>
+      </article>
+      <article class="who-card w2">
+        <div class="who-ico" aria-hidden="true">💻</div>
+        <span class="who-lbl">For you if you're</span>
+        <h3>A finance VA</h3>
+        <p>Already working with clients and want to level up, get unstuck or deliver with more confidence.</p>
+        <ul class="path-list">
+          <li><span class="pf">FREE</span><a href="#message">Ask me anything on the freedom wall</a></li>
+          <li><span class="pp">PAID</span><a href="#coaching">Client Task Reinforcement</a></li>
+          <li><span class="pp">₱399</span><a href="#pay">Bookkeeping Session Program</a></li>
+        </ul>
+      </article>
+      <article class="who-card w3">
+        <div class="who-ico" aria-hidden="true">🚀</div>
+        <span class="who-lbl">For you if you're</span>
+        <h3>A founder without a finance background</h3>
+        <p>You built the business on grit. Now you want to understand your numbers without drowning in jargon.</p>
+        <ul class="path-list">
+          <li><span class="pf">FREE</span><a href="#book">30-minute discovery call</a></li>
+          <li><span class="pp">WEEKLY</span><a href="#packages">Bookkeeping Packages</a></li>
+          <li><span class="pp">QUOTE</span><a href="#packages-project">Project-Based Package</a></li>
+        </ul>
+      </article>
+      <article class="who-card w4">
+        <div class="who-ico" aria-hidden="true">📈</div>
+        <span class="who-lbl">For you if you're</span>
+        <h3>A growing business</h3>
+        <p>Ready for more customers, funding or smoother operations, and want one Finance &amp; Operations partner.</p>
+        <ul class="path-list">
+          <li><span class="pf">FREE</span><a href="#book">30-minute discovery call</a></li>
+          <li><span class="pp">RETAINER</span><a href="#combos">Business Growth Combos</a></li>
+          <li><span class="pp">QUOTE</span><a href="#services">Loans, feasibility &amp; business plans</a></li>
+        </ul>
+      </article>
+    </div>
+    <div class="ladder" aria-label="Every way to work with Wendy">
+      <div class="rung r1"><b>FREE</b><span>Toolkit · FB group · Discovery call · Freedom wall</span></div>
+      <div class="rung r2"><b>PAID</b><span>₱399 Session Program · Client Task Reinforcement</span></div>
+      <div class="rung r3"><b>PACKAGES</b><span>Basic · Pro · Premium · Project-Based</span></div>
+      <div class="rung r4"><b>COMBOS</b><span>LaunchPad · GrowthPilot · BusinessPilot 360</span></div>
+    </div>
+    <p class="nonacc-close">Everything you need to grow and succeed, for yourself or your business, in one place.</p>
   </div>
 </section>
 
@@ -425,6 +633,21 @@ footer h2{color:#fff}
       <article class="svc"><div class="ico" style="background:#ffe3e3">💸</div><h3>Payroll management</h3><p>Accurate, on-time payroll processing and compliance handling, so your team gets paid right.</p></article>
       <article class="svc"><div class="ico" style="background:#fff2c7">📊</div><h3>Reporting &amp; dashboards</h3><p>Financial reports and insights built to inform confident business decisions.</p></article>
       <article class="svc"><div class="ico" style="background:#d9f6ea">🔭</div><h3>Financial planning &amp; analysis</h3><p>Budgets, forecasts and performance insights that look forward, not just back.</p></article>
+      <div class="grow-band">
+        <span class="gb-new">NEW</span>
+        <div class="gb-copy">
+          <h3>From Records to Rocket Fuel 🚀</h3>
+          <p>Your receipts, ledgers and spreadsheets are hiding your next big move. I turn them into the documents and insights that win loans, impress investors and open doors.</p>
+        </div>
+        <div class="gb-tags"><span>Get funded</span><span>Get credible</span><span>Get growing</span></div>
+      </div>
+      <article class="svc grow"><div class="ico" style="background:#e0f1fd">🔍</div><h3>Finance data analysis</h3><p>Your numbers are talking. I translate them into trends, margins and money moves you can act on this week.</p></article>
+      <article class="svc grow"><div class="ico" style="background:#ffe3e3">🏢</div><h3>Company profile</h3><p>Walk into every pitch, tender and partner meeting looking like the big leagues. Polished, credible, unmistakably you.</p></article>
+      <article class="svc grow"><div class="ico" style="background:#fff2c7">🏦</div><h3>Business loan packaging</h3><p>Hand your bank a file they can say yes to: clean statements, solid projections and every supporting document in order.</p></article>
+      <article class="svc grow"><div class="ico" style="background:#d9f6ea">🧪</div><h3>Feasibility studies</h3><p>Dreaming of a new branch, product or venture? Test it on paper first, with real market and financial numbers, before you spend a peso.</p></article>
+      <article class="svc grow"><div class="ico" style="background:#e0f1fd">🗺️</div><h3>Business plans &amp; projections</h3><p>A clear roadmap with 3- to 5-year projections that gets investors, lenders and your own team excited about where you're headed.</p></article>
+      <article class="svc grow"><div class="ico" style="background:#ffe3e3">🗃️</div><h3>Records &amp; compliance organisation</h3><p>No more box-of-receipts panic. Sorted, digitised, audit-ready files, so permits, renewals and tax season feel like a breeze.</p></article>
+      <div class="svc-sub">Add-ons</div>
       <article class="svc add"><span class="tag">Add-on</span><h3>Start-up social media</h3><p>Posting calendar, captions and content themes aligned with your brand.</p></article>
       <article class="svc add"><span class="tag">Add-on</span><h3>Lead generation</h3><p>Targeted prospect lists and outreach support to keep your pipeline moving.</p></article>
       <article class="svc add"><span class="tag">Add-on</span><h3>Customer support</h3><p>Friendly help across email, chat and other channels: enquiries, follow-ups and basic fixes.</p></article>
@@ -461,18 +684,57 @@ footer h2{color:#fff}
   </div>
 </section>
 
+<section class="chooser" id="ways">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ways to work with me</span>
+      <h2>Not sure where to start? Pick your path.</h2>
+      <p class="lede">Need bookkeeping done every week? Go with a Bookkeeping Package. Need several business functions handled together? Go with a Business Growth Combo.</p>
+    </div>
+    <div class="paths">
+      <a class="path pa" href="#packages">
+        <span class="opt">BOOKKEEPING PACKAGES</span>
+        <h3>Weekly bookkeeping support</h3>
+        <p class="ask">"I just need my books handled."</p>
+        <dl>
+          <div><dt>What you get</dt><dd>Dedicated weekly hours for bookkeeping, payroll and finance admin</dd></div>
+          <div><dt>Best for</dt><dd>Businesses that mainly need bookkeeping support</dd></div>
+          <div><dt>Pricing</dt><dd>Fixed weekly rate: $79, $129 or $229</dd></div>
+          <div><dt>Choose by</dt><dd>How many hours you need: 10, 20 or 40 per week</dd></div>
+        </dl>
+        <span class="go">See packages →</span>
+      </a>
+      <span class="vs" aria-hidden="true">or</span>
+      <a class="path pb" href="#combos">
+        <span class="opt">BUSINESS GROWTH COMBOS</span>
+        <h3>Finance + operations, all in one</h3>
+        <p class="ask">"I need help running and growing the business."</p>
+        <dl>
+          <div><dt>What you get</dt><dd>Bookkeeping bundled with admin, lead generation, FP&amp;A, automation and website</dd></div>
+          <div><dt>Best for</dt><dd>Founders who want one partner instead of hiring several people</dd></div>
+          <div><dt>Pricing</dt><dd>Monthly retainer, custom quote after a free call</dd></div>
+          <div><dt>Choose by</dt><dd>Your stage: Start Smart, Scale Smart or Scale Beyond</dd></div>
+        </dl>
+        <span class="go">See combos →</span>
+      </a>
+    </div>
+    <p class="fine" style="text-align:center">Just need a one-off job like a clean-up, loan package or feasibility study? See the <a href="#packages-project">Project-Based Package</a>.</p>
+  </div>
+</section>
+
 <section id="packages">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Packages</span>
-      <h2>Pick the support that fits today</h2>
+      <span class="eyebrow"><span class="tag-opt">BOOKKEEPING PACKAGES</span></span>
+      <h2>Dedicated bookkeeping hours, fixed weekly price</h2>
+      <p class="lede">Pick how many hours of bookkeeping support you need each week. Simple and predictable.</p>
     </div>
     <div class="price-grid">
       <div class="plan"><h3>Basic</h3><div class="amt">$79<small>/week</small></div><ul><li>Dedicated 10 hrs/week</li><li>Up to 2 bank/card accounts</li><li>Weekly reconciliation</li><li>Monthly financial statements</li><li>Payables &amp; receivables</li><li>Tax preparation support</li><li>Email, SMS &amp; phone support</li></ul><a class="btn ghost" href="#book" data-plan="Basic">Start with Basic</a></div>
       <div class="plan pop"><span class="badge">MOST POPULAR</span><h3>Pro</h3><div class="amt">$129<small>/week</small></div><ul><li>Dedicated 20 hrs/week</li><li>Everything in Basic</li><li>Up to 4 bank/card accounts</li><li>Daily reconciliation</li><li>Bookkeeping and payroll</li><li>Supplier &amp; customer coordination</li><li>General admin task support</li></ul><a class="btn sun" href="#book" data-plan="Pro">Go Pro</a></div>
       <div class="plan"><h3>Premium</h3><div class="amt">$229<small>/week</small></div><ul><li>Dedicated 40 hrs/week</li><li>Everything in Pro</li><li>Unlimited bank accounts</li><li>Payroll, bill pay &amp; invoicing</li><li>KPI dashboards &amp; reporting</li><li>Priority monthly delivery</li><li>Virtual service advisor support</li></ul><a class="btn ghost" href="#book" data-plan="Premium">Choose Premium</a></div>
     </div>
-    <div class="project">
+    <div class="project" id="packages-project">
       <div class="proj-head">
         <span class="badge">ONE-OFF PROJECTS</span>
         <h3>Project-Based Package</h3>
@@ -488,11 +750,87 @@ footer h2{color:#fff}
         <li>Custom KPI dashboards and reports</li>
         <li>Budgets, forecasts and cash-flow models</li>
         <li>Process and automation fixes</li>
+        <li>Finance data analysis</li>
+        <li>Company profile</li>
+        <li>Business loan packaging</li>
+        <li>Feasibility studies &amp; business plans</li>
         <li>Anything else, just ask</li>
       </ul>
     </div>
   </div>
 </section>
+
+<section class="combo" id="combos">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><span class="tag-opt" style="background:var(--coral)">BUSINESS GROWTH COMBOS</span></span>
+      <h2>One partner. Many business functions. More room to grow.</h2>
+      <p class="lede">You don't need to hire a bookkeeper, an admin assistant, a financial analyst, a lead generator and a web designer separately. These combos bring them together under one flexible support partnership, so you can stop hiring for tasks and start building a business support system.</p>
+    </div>
+    <div class="combo-grid">
+      <article class="cb">
+        <div class="cb-top"><span class="lvl">1 · START SMART</span><span class="for">For startups &amp; solo entrepreneurs</span></div>
+        <h3>The LaunchPad Combo</h3>
+        <p class="mix">Bookkeeping + General Admin + Lead Generation</p>
+        <p>Get organised, track your finances and keep your sales pipeline moving. I handle the numbers, the everyday admin and the prospecting so you can focus on winning customers.</p>
+        <ul>
+          <li><b>Bookkeeping:</b> transaction recording, bank recs, expense tracking and basic reports</li>
+          <li><b>General admin:</b> inbox management, data entry, document prep and coordination</li>
+          <li><b>Lead generation:</b> prospect research, lead lists, CRM updates and outreach support</li>
+        </ul>
+        <p class="out-line">Your business foundation, organised and ready to grow.</p>
+        <a class="btn ghost" href="#book" data-plan="LaunchPad Combo">Get a LaunchPad quote</a>
+      </article>
+      <article class="cb">
+        <div class="cb-top"><span class="lvl">2 · SCALE SMART</span><span class="for">For growing businesses</span></div>
+        <h3>The GrowthPilot Combo</h3>
+        <p class="mix">Bookkeeping + General Admin + FP&amp;A + Lead Generation</p>
+        <p>Go beyond recording transactions. See where your money goes, how the business performs and what it takes to be more profitable, while your pipeline keeps filling.</p>
+        <ul>
+          <li><b>Bookkeeping:</b> accurate records, reconciliations and monthly financial statements</li>
+          <li><b>General admin:</b> coordination, documentation, inbox and operations support</li>
+          <li><b>FP&amp;A:</b> budgets, cash-flow forecasts, profitability analysis, KPI tracking and management reports</li>
+          <li><b>Lead generation:</b> targeted prospect lists, CRM updates and outreach support to keep new customers coming</li>
+        </ul>
+        <p class="out-line">Know your numbers. Control your cash flow. Decide with confidence.</p>
+        <a class="btn ghost" href="#book" data-plan="GrowthPilot Combo">Get a GrowthPilot quote</a>
+      </article>
+      <article class="cb flag">
+        <span class="ribbon">MOST POPULAR</span>
+        <div class="cb-top"><span class="lvl">3 · SCALE BEYOND</span><span class="for">Premium all-in-one</span></div>
+        <h3>The BusinessPilot 360 Combo</h3>
+        <p class="mix">Bookkeeping + Admin + FP&amp;A + Automation + Website</p>
+        <p>A finance and operations partner who organises your finances, streamlines workflows, automates repetitive tasks and builds your online presence, all in one package.</p>
+        <ul>
+          <li><b>Bookkeeping:</b> end-to-end books, reconciliations and financial reporting</li>
+          <li><b>General admin:</b> executive assistance and administrative management</li>
+          <li><b>FP&amp;A:</b> budgets, forecasts, cash-flow management, KPI dashboards and profit insights</li>
+          <li><b>Automation:</b> workflow automation, system integration, payment set-up and process fixes</li>
+          <li><b>Website design:</b> a professional business website that helps bring in customers</li>
+        </ul>
+        <p class="out-line">From messy operations to streamlined systems.</p>
+        <a class="btn sun" href="#book" data-plan="BusinessPilot 360 Combo">Get a BusinessPilot 360 quote</a>
+      </article>
+    </div>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <caption>What's in each combo</caption>
+        <thead><tr><th scope="col">Service</th><th scope="col">LaunchPad</th><th scope="col">GrowthPilot</th><th scope="col">BusinessPilot 360</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Bookkeeping</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><th scope="row">General admin</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><th scope="row">Lead generation</th><td class="y">✓</td><td class="y">✓</td><td class="n">—</td></tr>
+          <tr><th scope="row">Financial planning &amp; analysis</th><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><th scope="row">Automation &amp; integration</th><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+          <tr><th scope="row">Website design</th><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="fine">Combos run as monthly retainers. Website builds, automation set-up and any initial bookkeeping clean-up carry a one-time set-up fee. Every combo is quoted after a free discovery call, and extra services can be added and quoted separately.</p>
+  </div>
+</section>
+
+
 
 <section style="padding-top:0">
   <div class="wrap">
@@ -527,12 +865,12 @@ footer h2{color:#fff}
         <div class="field"><label for="c_biz">Business / industry</label><input id="c_biz" name="business" placeholder="e.g. Construction, e-commerce"></div>
         <div class="field"><label for="c_country">Country</label><select id="c_country" name="country"><option>Australia</option><option>New Zealand</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Philippines</option><option>Other</option></select></div>
       </div>
-      <div class="field"><label for="c_need">What do you need help with?</label><select id="c_need" name="need"><option>Ongoing bookkeeping</option><option>Clean-up / catch-up</option><option>Software or ERP set-up</option><option>Payroll</option><option>Reporting &amp; dashboards</option><option>FP&amp;A / forecasting</option><option>Not sure yet</option></select></div>
+      <div class="field"><label for="c_need">What do you need help with?</label><select id="c_need" name="need"><option>Ongoing bookkeeping</option><option>Clean-up / catch-up</option><option>Software or ERP set-up</option><option>Payroll</option><option>Reporting &amp; dashboards</option><option>FP&amp;A / forecasting</option><option>Finance data analysis</option><option>Company profile</option><option>Business loan packaging</option><option>Feasibility study / business plan</option><option>Not sure yet</option></select></div>
       <div class="row2">
         <div class="field"><label for="c_date">Preferred date</label><input id="c_date" name="date" type="date" required></div>
         <div class="field"><label for="c_time">Preferred time</label><select id="c_time" name="time"><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Evening</option></select><span class="hint">Your local time. I'll match it.</span></div>
       </div>
-      <div class="field"><label for="c_pkg">Package you're curious about</label><select id="c_pkg" name="package"><option>Not sure yet</option><option>Basic</option><option>Pro</option><option>Premium</option><option>Project-based</option></select></div>
+      <div class="field"><label for="c_pkg">Package you're curious about</label><select id="c_pkg" name="package"><option>Not sure yet</option><option>Basic</option><option>Pro</option><option>Premium</option><option>Project-based</option><option>LaunchPad Combo</option><option>GrowthPilot Combo</option><option>BusinessPilot 360 Combo</option></select></div>
       <div class="field"><label for="c_msg">Anything else? <span class="hint">(optional)</span></label><textarea id="c_msg" name="message" placeholder="Software you use, number of bank accounts, how far behind the books are…"></textarea></div>
       <button class="btn" type="submit">Request my discovery call</button>
       <div class="out" aria-live="polite"></div>
@@ -576,7 +914,7 @@ footer h2{color:#fff}
         <div class="gstep" id="g2">
           <h3><span class="n">2</span>Send me your details</h3>
           <div class="row2">
-            <div class="field"><label for="k_name">First name</label><input id="k_name" name="name" required autocomplete="given-name" placeholder="Maria"></div>
+            <div class="field"><label for="k_name">Complete name</label><input id="k_name" name="name" required autocomplete="name" placeholder="Maria Santos dela Cruz"></div>
             <div class="field"><label for="k_email">Email</label><input id="k_email" name="email" type="email" required autocomplete="email" placeholder="you@email.com"></div>
           </div>
           <div class="field"><label for="k_fb">Your Facebook name <span class="hint">(so I can find your follow)</span></label><input id="k_fb" name="facebookName" required placeholder="Name on your Facebook profile"></div>
@@ -598,9 +936,9 @@ footer h2{color:#fff}
       <p class="lede">Private, hands-on sessions for aspiring and new bookkeepers. We work in real software on real-world scenarios, at your pace, so you grow the skills and the confidence to help business owners tell their story.</p>
     </div>
     <div class="offers">
-      <div class="plan"><span class="badge" style="background:var(--mint)">START HERE</span><h3>FREE Bookkeeping Session</h3><div class="amt">FREE<small> · 1 hour</small></div><ul><li>One-on-one video call with Wendy</li><li>Find your current level and your gaps</li><li>Walk through the Bookkeeper VA roadmap</li><li>Live demo in Xero or QuickBooks</li><li>Ask me anything about starting out</li></ul><a class="btn ghost" href="#coachForm" data-session="free">Book my free session</a></div>
-      <div class="plan pop"><span class="badge">PROMO</span><h3>Bookkeeping Session Program</h3><div class="amt">$250<small> per person</small></div><p class="promo">Promo price until <b>February 28, 2027</b> only<span class="days" data-promo></span></p><ul><li>Full 1-on-1 program, all 4 stages below</li><li>Hands-on practice in real software</li><li>Bank recs and month-end close, step by step</li><li>Resume and portfolio review</li><li>Guidance on landing your first client</li></ul><a class="btn sun" href="#coachForm" data-session="paid">Join the program</a></div>
-      <div class="plan"><span class="badge" style="background:var(--sky)">ON REQUEST</span><h3>Client Task Reinforcement</h3><div class="amt" style="font-size:34px">Ask me<small> · quoted per task</small></div><ul><li>Already have a client and stuck on a task?</li><li>Bank recs, catch-up, month-end, payroll or reports</li><li>I review it and guide you live, or help you fix it</li><li>You deliver on time and with confidence</li><li>Client data shared only with your client's OK</li></ul><a class="btn ghost" href="#coachForm" data-session="task">Request reinforcement</a></div>
+      <div class="plan"><span class="badge" style="background:var(--mint)">START HERE</span><h3>FREE Bookkeeper Community</h3><div class="amt">FREE<small> · always</small></div><ul><li><b>Free</b> to join the FB group community</li><li>Bookkeeper Starter Blueprint Toolkit</li><li>Tips, wins and questions with fellow learners</li><li>Ask me anything on the freedom wall</li></ul><a class="btn ghost" href="#toolkit">Get the free toolkit</a></div>
+      <div class="plan pop"><span class="badge">PROMO</span><h3>Bookkeeping Session Program</h3><div class="amt">₱399<small> per enrollee</small></div><p class="promo">Promo price until <b>February 28, 2027</b> only<span class="days" data-promo></span></p><ul><li><b>2-hour</b> 1-on-1 session with Wendy</li><li>Covers all 4 stages below, hands-on</li><li><b>Unlimited resources</b>: templates, guides and practice files</li><li>Resources <b>continuously updated</b>, free for you</li><li>Resume, portfolio and first-client guidance</li></ul><a class="btn sun" href="#pay">Join the program</a><span style="font-size:13.5px;font-weight:700;text-align:center">Pay via GCash and you're in</span></div>
+      <div class="plan"><span class="badge" style="background:var(--sky)">ON REQUEST</span><h3>Client Task Reinforcement</h3><div class="amt" style="font-size:34px">Ask me<small> · quoted per task</small></div><ul><li>Already have a client and stuck on a task?</li><li>Bank recs, catch-up, month-end, payroll or reports</li><li>I review it and guide you, or help you fix it</li><li>You deliver on time and with confidence</li><li>Client data shared only with your client's OK</li></ul><a class="btn ghost" href="#coachForm" data-session="task">Request reinforcement</a></div>
     </div>
     <div class="coach-grid">
       <div class="modules">
@@ -609,11 +947,11 @@ footer h2{color:#fff}
         <div class="mod"><span class="wk">Stage 2</span><div><h3>Hands-on in Xero &amp; QuickBooks</h3><p>Bank feeds, coding, rules, bills, invoices and receipt apps like Dext and Hubdoc.</p></div></div>
         <div class="mod"><span class="wk">Stage 3</span><div><h3>Reconciliation &amp; month-end</h3><p>Clean bank recs, accruals, a repeatable close checklist and reports owners can read.</p></div></div>
         <div class="mod"><span class="wk">Stage 4</span><div><h3>Working with clients</h3><p>Onboarding, communication, pricing your services and building a portfolio you're proud of.</p></div></div>
-        <p class="fine">All sessions run on video. I'll confirm your schedule by email.</p>
+        <p class="fine">I'll confirm your session schedule by email.</p>
       </div>
       <form class="form-card" id="coachForm" novalidate>
-        <div class="coach-head"><div><h3>Book your 1-on-1 session</h3><p class="fine" style="margin:4px 0 0">Pick the free hour, the program, or request task reinforcement.</p></div><svg class="happybook" viewBox="0 0 160 130" aria-hidden="true"><g class="hb-body"><path d="M80 30 C60 18 30 16 10 22 L10 112 C30 106 60 108 80 120 Z" fill="#ff5a5a" stroke="#2b2230" stroke-width="5" stroke-linejoin="round"/><path d="M80 30 C100 18 130 16 150 22 L150 112 C130 106 100 108 80 120 Z" fill="#ff5a5a" stroke="#2b2230" stroke-width="5" stroke-linejoin="round"/><path d="M80 34 C64 24 38 24 20 28 L20 104 C38 100 64 102 80 112 Z" fill="#fff" stroke="#2b2230" stroke-width="3"/><path class="hb-page" d="M80 34 C96 24 122 24 140 28 L140 104 C122 100 96 102 80 112 Z" fill="#fff" stroke="#2b2230" stroke-width="3"/><g class="hb-eyes" fill="#2b2230"><ellipse cx="52" cy="62" rx="5" ry="7"/><ellipse cx="108" cy="62" rx="5" ry="7"/></g><circle cx="40" cy="78" r="6" fill="#ffb3b3"/><circle cx="120" cy="78" r="6" fill="#ffb3b3"/><path d="M60 80 Q80 100 100 80" fill="#ffd166" stroke="#2b2230" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 44 h30 M28 50 h22 M102 44 h30 M110 50 h22" stroke="#8ecdf5" stroke-width="3" stroke-linecap="round"/></g><g class="hb-spark" fill="#ffd166" stroke="#2b2230" stroke-width="2.5"><path d="M18 8 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/><path d="M146 2 l2.5 5.5 5.5 2.5 -5.5 2.5 -2.5 5.5 -2.5 -5.5 -5.5 -2.5 5.5 -2.5z"/></g></svg></div>
-        <div class="field"><label for="q_fmt">Session</label><select id="q_fmt" name="session"><option value="FREE 1-hour Bookkeeping Session">FREE 1-hour Bookkeeping Session</option><option value="Bookkeeping Session Program ($250 per person, promo until Feb 28, 2027)">Bookkeeping Session Program ($250 promo)</option><option value="Client Task Reinforcement">Client Task Reinforcement (request)</option></select></div>
+        <div class="coach-head"><div><h3>Book your 1-on-1 session</h3><p class="fine" style="margin:4px 0 0">Reserve the program or request task reinforcement.</p></div><svg class="happybook" viewBox="0 0 160 130" aria-hidden="true"><g class="hb-body"><path d="M80 30 C60 18 30 16 10 22 L10 112 C30 106 60 108 80 120 Z" fill="#ff5a5a" stroke="#2b2230" stroke-width="5" stroke-linejoin="round"/><path d="M80 30 C100 18 130 16 150 22 L150 112 C130 106 100 108 80 120 Z" fill="#ff5a5a" stroke="#2b2230" stroke-width="5" stroke-linejoin="round"/><path d="M80 34 C64 24 38 24 20 28 L20 104 C38 100 64 102 80 112 Z" fill="#fff" stroke="#2b2230" stroke-width="3"/><path class="hb-page" d="M80 34 C96 24 122 24 140 28 L140 104 C122 100 96 102 80 112 Z" fill="#fff" stroke="#2b2230" stroke-width="3"/><g class="hb-eyes" fill="#2b2230"><ellipse cx="52" cy="62" rx="5" ry="7"/><ellipse cx="108" cy="62" rx="5" ry="7"/></g><circle cx="40" cy="78" r="6" fill="#ffb3b3"/><circle cx="120" cy="78" r="6" fill="#ffb3b3"/><path d="M60 80 Q80 100 100 80" fill="#ffd166" stroke="#2b2230" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 44 h30 M28 50 h22 M102 44 h30 M110 50 h22" stroke="#8ecdf5" stroke-width="3" stroke-linecap="round"/></g><g class="hb-spark" fill="#ffd166" stroke="#2b2230" stroke-width="2.5"><path d="M18 8 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z"/><path d="M146 2 l2.5 5.5 5.5 2.5 -5.5 2.5 -2.5 5.5 -2.5 -5.5 -5.5 -2.5 5.5 -2.5z"/></g></svg></div>
+        <div class="field"><label for="q_fmt">Session</label><select id="q_fmt" name="session"><option value="Bookkeeping Session Program (PHP 399 per enrollee, 2-hour 1-on-1, promo until Feb 28, 2027)">Bookkeeping Session Program (₱399 promo)</option><option value="Client Task Reinforcement">Client Task Reinforcement (request)</option></select></div>
         <div class="field" id="taskField" hidden><label for="q_task">Describe the client task</label><textarea id="q_task" name="clientTask" placeholder="e.g. 3 months of bank recs in Xero for a café client, due next Friday"></textarea><span class="hint">Industry, software, what's needed and the deadline. No client passwords or account numbers here, please.</span></div>
         <div class="row2">
           <div class="field"><label for="q_name">Your name</label><input id="q_name" name="name" required autocomplete="name"></div>
@@ -628,10 +966,112 @@ footer h2{color:#fff}
           <div class="field"><label for="q_tz">Your time zone / country</label><input id="q_tz" name="timezone" placeholder="e.g. Philippines (PHT)"></div>
         </div>
         <div class="field"><label for="q_goal">What's your goal?</label><textarea id="q_goal" name="goal" placeholder="e.g. Land my first remote bookkeeping client in 3 months"></textarea></div>
-        <button class="btn" type="submit" id="coachBtn">Book my free session</button>
+        <button class="btn" type="submit" id="coachBtn">Reserve my program slot</button>
         <div class="out" aria-live="polite"></div>
       </form>
     </div>
+    <div class="pay" id="pay">
+      <div class="pay-head">
+        <span class="badge">ENROLL · ₱399</span>
+        <h3>Join the Bookkeeping Session Program</h3>
+        <p>3 quick steps. Done in about 2 minutes.</p>
+      </div>
+      <div class="pay-box gcash">
+        <div class="stepn">1</div>
+        <h4>Send ₱399 via GCash</h4>
+        <div class="pay-row"><small>GCash name</small><b>WENDELYN BARBON</b></div>
+        <div class="pay-row"><small>GCash number</small><b id="gcashNo">09457734912</b><button type="button" class="btn ghost mini" data-copy="gcashNo">Copy</button></div>
+        <div class="pay-row"><small>Amount</small><b>₱399.00</b></div>
+        <p class="fine" style="margin:0">Screenshot your GCash proof of payment after paying.</p>
+      </div>
+      <form class="pay-box" id="enrollForm" novalidate>
+        <div class="stepn">2</div>
+        <h4>Tell me who you are</h4>
+        <div class="field"><label for="e_name">Complete name</label><input id="e_name" name="completeName" required autocomplete="name" placeholder="Juan Santos dela Cruz"></div>
+        <div class="field"><label for="e_email">Email address</label><input id="e_email" name="email" type="email" required autocomplete="email" placeholder="you@email.com"></div>
+        <div class="field"><label for="e_ref">GCash reference no.</label><input id="e_ref" name="gcashReference" required inputmode="numeric" placeholder="Ref No. on your proof of payment"></div>
+        <button class="btn" type="submit">Submit my enrollment</button>
+        <div class="out" aria-live="polite"></div>
+      </form>
+      <div class="pay-box">
+        <div class="stepn">3</div>
+        <h4>Email your proof of payment</h4>
+        <p style="font-size:15px">Send your GCash proof of payment to:</p>
+        <div class="pay-row"><b id="payEmail">wendybarbon2022@gmail.com</b><button type="button" class="btn ghost mini" data-copy="payEmail">Copy</button></div>
+        <a class="btn sun" id="mailProof" href="mailto:wendybarbon2022@gmail.com?subject=Proof%20of%20Payment%20%E2%80%93%20Bookkeeping%20Session%20Program">Open my email app</a>
+        <p class="fine" style="margin:0">That's it! I'll email you the complete program instructions once I confirm your payment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="freedom" id="freedom">
+  <div class="wrap">
+    <div class="sec-head fr-head">
+      <span class="eyebrow">The bottom line</span>
+      <h2>Every ledger has a bottom line. <span class="fr-hl">Yours is freedom.</span></h2>
+      <p class="lede">Growing yourself and growing your business lead to the same place: more time, more money and more energy for what matters. When your numbers are in order, freedom adds up.</p>
+    </div>
+    <div class="fr-eq" aria-label="Clean books plus the right support equals freedom">
+      <span class="fr-term">Clean books</span><span class="fr-op">+</span><span class="fr-term">The right support</span><span class="fr-op">=</span><span class="fr-term fr-total">FREEDOM</span>
+    </div>
+    <div class="fr-grid">
+      <article class="fr-card t">
+        <div class="fr-ico" aria-hidden="true">⏳</div>
+        <h3>Time freedom</h3>
+        <p class="fr-math">Hours spent on books <b>−</b> what you outsource <b>=</b> hours back in your week</p>
+        <p>Stop losing nights to receipts and reconciliations. Hand them off and spend that time on clients, family and rest.</p>
+      </article>
+      <article class="fr-card f">
+        <div class="fr-ico" aria-hidden="true">💰</div>
+        <h3>Financial freedom</h3>
+        <p class="fr-math">Clear numbers <b>×</b> smart decisions <b>=</b> profit that compounds</p>
+        <p>Know exactly where every peso goes, plug the leaks and grow with confidence. For bookkeepers, it's a skill that keeps paying you.</p>
+      </article>
+      <article class="fr-card e">
+        <div class="fr-ico" aria-hidden="true">⚡</div>
+        <h3>Energy freedom</h3>
+        <p class="fr-math">Stress <b>÷</b> a trusted partner <b>=</b> energy for what you love</p>
+        <p>No more 2 a.m. "did I pay that bill?" panic. Put your energy into building, creating and leading.</p>
+      </article>
+    </div>
+    <div class="fr-ctas">
+      <a class="fr-cta" href="#book"><span>Business owners</span><b>Outsource your books</b><small>Book a free discovery call →</small></a>
+      <a class="fr-cta" href="#ways"><span>Growing teams</span><b>Hire a Finance &amp; Ops partner</b><small>See packages &amp; combos →</small></a>
+      <a class="fr-cta hot" href="#pay"><span>Future bookkeepers</span><b>Enroll and earn your freedom</b><small>Join the ₱399 program →</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="refer" id="referrals">
+  <div class="wrap refer-grid">
+    <div class="refer-copy">
+      <span class="eyebrow">Referral Program</span>
+      <h2>Know a business that needs help with its numbers?</h2>
+      <p class="lede">Introduce them to Wendy Finance VA and earn a <b>referral fee</b>. Once your referral is confirmed to avail any of my services, I'll pay you a referral fee as my thank-you.</p>
+      <div class="fee-tag"><span aria-hidden="true">💸</span><div><b>You get paid a referral fee</b><small>Released once your referral is confirmed to avail services</small></div></div>
+      <ol class="steps">
+        <li><div><b>Share their details</b> below, or send them this website.</div></li>
+        <li><div><b>I reach out</b> politely and mention your name.</div></li>
+        <li><div><b>They avail a service</b> and once it's confirmed, I send you your referral fee.</div></li>
+      </ol>
+      <div class="chips"><span class="chip c">Business owners</span><span class="chip s">Startups</span><span class="chip m">Aspiring bookkeepers</span><span class="chip b">Accounting firms</span></div>
+    </div>
+    <form class="form-card" id="refForm" novalidate>
+      <h3>Refer someone</h3>
+      <div class="row2">
+        <div class="field"><label for="r_you">Your name</label><input id="r_you" name="yourName" required autocomplete="name"></div>
+        <div class="field"><label for="r_youmail">Your email</label><input id="r_youmail" name="yourEmail" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="r_name">Who are you referring?</label><input id="r_name" name="referralName" required placeholder="Name or business"></div>
+        <div class="field"><label for="r_contact">Their email or mobile</label><input id="r_contact" name="referralContact" required placeholder="So I can reach them"></div>
+      </div>
+      <div class="field"><label for="r_need">What do they need?</label><select id="r_need" name="referralNeed"><option>Bookkeeping or accounting support</option><option>Business Growth Combo</option><option>Business loan, feasibility or business plan</option><option>Company profile or data analysis</option><option>Coaching session (aspiring bookkeeper)</option><option>Not sure</option></select></div>
+      <label class="check" for="r_ok"><input type="checkbox" id="r_ok" name="theyAgreed" required>They know I'm sharing their details with Wendy.</label>
+      <button class="btn" type="submit">Send referral</button>
+      <div class="out" aria-live="polite"></div>
+    </form>
   </div>
 </section>
 
@@ -685,8 +1125,8 @@ footer h2{color:#fff}
 <footer>
   <div class="wrap">
     <div style="display:grid;gap:10px">
-      <span class="eyebrow" style="color:var(--sun)">Let's work together</span>
-      <h2>Your books deserve someone who treats them like their own.</h2>
+      <span class="eyebrow" style="color:var(--sun)">Your freedom starts with your numbers</span>
+      <h2>Balance your books. Free your time, money and energy.</h2>
     </div>
     <div class="contact-grid">
       <div class="ct"><small>Email</small><b id="ctEmail">wendybarbon2022@gmail.com</b><button type="button" data-copy="ctEmail">Copy</button></div>
@@ -785,11 +1225,22 @@ footer h2{color:#fff}
     });
   }
   wire('#callForm','discoveryCall','Discovery call request',d=>'Thanks, '+(d.name.split(' ')[0]||'friend')+'! Your request is in. I\'ll confirm your call by email within 1 business day.');
-  wire('#coachForm','coaching','1-on-1 bookkeeping session request',d=>'Yay, '+(d.name.split(' ')[0]||'friend')+'! Your request for the '+d.session+' is in. I\'ll email you to confirm your schedule'+(/250/.test(d.session)?' and payment details.':d.clientTask?' and the quote for this task.':'.'));
+  wire('#coachForm','coaching','1-on-1 bookkeeping session request',d=>'Yay, '+(d.name.split(' ')[0]||'friend')+'! Your request for the '+d.session+' is in. I\'ll email you to confirm your schedule'+(/PHP 399/.test(d.session)?' and payment details. Once paid, email your proof of payment to wendybarbon2022@gmail.com.':d.clientTask?' and the quote for this task.':'.'));
   (function(){const end=new Date('2027-02-28T23:59:59+08:00');const left=Math.ceil((end-new Date())/864e5);document.querySelectorAll('[data-promo]').forEach(el=>{el.textContent=left>0?left+' days left':'Promo has ended'})})();
-  const qf=$('#q_fmt'),cb=$('#coachBtn'),tf=$('#taskField');const syncBtn=()=>{const task=qf.selectedIndex===2;tf.hidden=!task;$('#q_task').required=task;cb.textContent=task?'Request reinforcement':/250/.test(qf.value)?'Reserve my program slot':'Book my free session'};qf.addEventListener('change',syncBtn);
-  document.querySelectorAll('[data-session]').forEach(a=>a.addEventListener('click',()=>{qf.selectedIndex={free:0,paid:1,task:2}[a.dataset.session]||0;syncBtn()}));
+  const qf=$('#q_fmt'),cb=$('#coachBtn'),tf=$('#taskField');const syncBtn=()=>{const task=qf.selectedIndex===1;tf.hidden=!task;$('#q_task').required=task;cb.textContent=task?'Request reinforcement':'Reserve my program slot'};qf.addEventListener('change',syncBtn);
+  document.querySelectorAll('[data-session]').forEach(a=>a.addEventListener('click',()=>{qf.selectedIndex={paid:0,task:1}[a.dataset.session]||0;syncBtn()}));
   try{$('#q_date').min=new Date().toISOString().slice(0,10)}catch(e){}
+
+  wire('#refForm','referral','New referral',d=>'Thank you, '+(d.yourName.split(' ')[0]||'friend')+'! I\'ll reach out to '+d.referralName+' and keep you posted by email.',out=>{if(!$('#r_ok').checked){out.innerHTML='<div class="msg err">Please check that they\'re okay with you sharing their details.</div>';return false}return true});
+
+  // enrollment
+  (function(){
+    const f=$('#enrollForm'),mp=$('#mailProof');
+    const upd=()=>{const n=$('#e_name').value.trim(),em=$('#e_email').value.trim(),r=$('#e_ref').value.trim();
+      mp.href='mailto:wendybarbon2022@gmail.com?subject='+encodeURIComponent('Proof of Payment – Bookkeeping Session Program'+(n?' – '+n:''))+'&body='+encodeURIComponent('Hi Wendy!\n\nComplete name: '+n+'\nEmail: '+em+'\nGCash reference no.: '+r+'\n\nMy GCash proof of payment is attached. Thank you!')};
+    f.addEventListener('input',upd);upd();
+    wire('#enrollForm','enrollment','Program enrollment (PHP 399 GCash)',d=>"You're almost in, "+(d.completeName.split(' ')[0]||'friend')+"! Last step: email your GCash proof of payment (step 3). I'll send your complete program instructions to "+d.email+' once payment is confirmed.');
+  })();
 
   // freedom wall
   (function(){
@@ -820,7 +1271,7 @@ footer h2{color:#fff}
   const syncFollow=()=>g1.classList.toggle('done',follow.checked);
   follow.addEventListener('change',syncFollow);
   $('#fbBtn').addEventListener('click',()=>setTimeout(()=>toast('Come back and tick the box once you\'ve followed 💛'),400));
-  wire('#kitForm','toolkit','Bookkeeper Starter Blueprint Toolkit request',d=>'Thank you for following, '+(d.name||'friend')+'! Once I see your follow, I\'ll personally email the Bookkeeper Starter Blueprint Toolkit to '+d.email+'.',out=>{
+  wire('#kitForm','toolkit','Bookkeeper Starter Blueprint Toolkit request',d=>'Thank you for following, '+(d.name.split(' ')[0]||'friend')+'! Once I see your follow, I\'ll personally email the Bookkeeper Starter Blueprint Toolkit to '+d.email+'.',out=>{
     if(!follow.checked){out.innerHTML='<div class="msg err">Please follow the Wendy Finance VA Facebook page first, then tick the box in step 1.</div>';follow.focus();return false}return true});
 })();
 </script>
